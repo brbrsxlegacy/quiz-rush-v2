@@ -1,0 +1,40 @@
+<!doctype html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Öğretmen Studio</title><link rel="stylesheet" href="/style.css"></head><body data-page="teacher" class="teacherBody">
+<main class="wrap teacherStudio">
+  <section class="teacherHero card">
+    <div>
+      <span class="badge">🎛️ Teacher Studio</span>
+      <h1 class="title">Quiz yönet, <span class="grad">oda kur</span>, sınıfı canlı izle.</h1>
+      <p class="muted">Burası öğrenci ekranı değil: AI üretim, manuel editör, süre ayarı, oda oluşturma ve host kontrol paneline geçiş burada.</p>
+      <div class="row"><span id="authState" class="badge"></span><a class="btn secondary" href="/account">Hesap / Mağaza</a></div>
+    </div>
+    <div class="teacherPreview">
+      <div class="radar"></div>
+      <b>Control Room hazır</b>
+      <small>Live players • skor • soru • geçişler</small>
+    </div>
+  </section>
+
+  <section class="teacherGrid">
+    <aside class="controlRail card delay">
+      <h2>⚙️ Oda Ayarları</h2>
+      <label>Quiz Başlığı</label><input id="quizTitle" placeholder="Örn. Fen Bilimleri Denemesi">
+      <label>Soru Süresi</label><select id="duration"><option value="10">10 sn</option><option value="15">15 sn</option><option value="20" selected>20 sn</option><option value="30">30 sn</option><option value="45">45 sn</option><option value="60">60 sn</option></select>
+      <div class="railStats"><div><b id="qCount">1</b><small>Soru</small></div><div><b>500+</b><small>Puan</small></div></div>
+      <button class="btn good wide" onclick="createRoom()">🚀 Canlı Oda Oluştur</button>
+      <button class="btn secondary wide" onclick="saveLocalQuiz()">💾 Quiz Kaydet</button>
+      <button class="btn secondary wide" onclick="loadLocalQuiz()">📂 Quiz Yükle</button>
+    </aside>
+
+    <section class="card aiConsole delay2">
+      <div class="space"><h2>🤖 AI Soru Motoru</h2><span class="badge">Groq</span></div>
+      <div class="miniGrid"><input id="topic" placeholder="Konu: Kesirler"><input id="grade" value="6" placeholder="Sınıf"><input id="count" type="number" min="3" max="20" value="8"><select id="difficulty"><option>kolay</option><option selected>orta</option><option>zor</option></select></div>
+      <button id="aiBtn" class="btn" onclick="generateAI()">✨ AI ile Quiz Üret</button>
+    </section>
+
+    <section class="card questionEditor delay2">
+      <div class="space"><h2>📝 Quiz Editörü</h2><button class="btn secondary" onclick="addQuestion()">+ Soru Ekle</button></div>
+      <div id="manualQuestions" class="questionStack"></div>
+    </section>
+  </section>
+</main>
+<script type="module" src="/app.js"></script></body></html>

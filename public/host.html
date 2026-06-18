@@ -1,0 +1,47 @@
+<!doctype html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Canlı Kontrol Odası</title><link rel="stylesheet" href="/style.css"></head><body data-page="host" class="hostBody">
+<main class="wrap hostDesk">
+  <section class="hostHeader card">
+    <div>
+      <span class="badge">🔴 Live Control Room</span>
+      <h1 class="title">Öğretmen Kontrol Odası</h1>
+      <p class="muted">Öğrenciler lobby’deyken başlat, oyun sırasında soruyu değiştir, skorları ve cevap durumunu canlı takip et.</p>
+    </div>
+    <div class="codeTower"><small>ODA KODU</small><div id="bigCode" class="bigCode">------</div><button class="btn secondary wide" onclick="copyRoomCode()">📋 Kodu Kopyala</button></div>
+  </section>
+
+  <section class="hostGrid">
+    <aside class="card commandCenter delay">
+      <h2>🎮 Komut Merkezi</h2>
+      <div class="statusPill" id="roomStatus">Durum: --</div>
+      <div class="hostMiniStats">
+        <div><b id="livePlayers">0</b><small>Oyuncu</small></div>
+        <div><b id="answeredCount">0/0</b><small>Cevap</small></div>
+        <div><b id="currentIndex">0</b><small>Soru</small></div>
+      </div>
+      <div class="hostButtons">
+        <button class="btn good wide" onclick="startGame()">▶ Oyunu Başlat</button>
+        <button class="btn secondary wide" onclick="nextQuestion()">⏭ Sonraki Soru</button>
+        <button class="btn secondary wide" onclick="resetScores()">🔄 Skorları Sıfırla</button>
+        <button class="btn bad wide" onclick="endGame()">🏁 Sonuçlara Git</button>
+      </div>
+    </aside>
+
+    <section class="card liveQuestion delay2">
+      <div class="space"><h2>📡 Canlı Soru</h2><span id="autoText" class="badge">Auto Advance açık</span></div>
+      <div class="timer"><div id="hostTimerBar"></div></div>
+      <h2 id="hostQuestion">Lobby bekleniyor...</h2>
+      <div id="hostAnswers" class="answerGrid"></div>
+    </section>
+
+    <section class="card playerMonitor delay2">
+      <div class="space"><h2>👥 Oyuncu Monitörü</h2><span class="badge">Kick + skor</span></div>
+      <div id="players" class="teacherPlayers"></div>
+    </section>
+
+    <section class="card leaderPanel delay2">
+      <h2>🏆 Canlı Skor</h2>
+      <div id="hostLeaderboard" class="leader list"></div>
+    </section>
+  </section>
+</main>
+<script type="module" src="/app.js"></script></body></html>
